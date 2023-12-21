@@ -1,3 +1,6 @@
+using PlayerWebApp.DAO;
+using PlayerWebApp.Service;
+
 namespace PlayerWebApp
 {
     public class Program
@@ -8,8 +11,8 @@ namespace PlayerWebApp
 
             // Add services to the container.
             builder.Services.AddRazorPages();
-            //builder.Services.AddScoped<IPlayerDAO, PlayerDAOImpl>();
-            //builder.Services.AddScoped<IPlayerService, PlayerServiceImpl>();
+            builder.Services.AddScoped<IPlayerDAO, PlayerDAOImpl>();
+            builder.Services.AddScoped<IPlayerService, PlayerServiceImpl>();
 
             var app = builder.Build();
 

@@ -1,0 +1,32 @@
+﻿@page
+@model PlayerWebApp.Pages.Players.IndexModel
+@{
+}
+
+<h2>Player List</h2>
+<table class="table">
+	<thead>
+		<tr>
+			<th>ID</th>
+			<th>Username</th>
+			<th>e-mail</th>
+		</tr>
+	</thead>
+	<tbody>
+		@if (Model.players is not null)
+		{
+			@foreach (var player in Model.players)
+			{
+				<tr>
+					<td>@player.Id</td>
+					<td>@player.Username</td>
+					<td>@player.Email</td>
+					<td>
+						<a class="btn btn-primary btn-sm" href="#">Edit</a>
+						<a class="btn btn-primary btn-sm" href="#">Delete</a>
+					</td>
+				</tr>
+			}
+		}
+	</tbody>
+</table>
