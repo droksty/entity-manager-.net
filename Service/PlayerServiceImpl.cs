@@ -93,9 +93,23 @@ namespace PlayerWebApp.Service
         }
 
 
+        public bool PlayerExists(string username, string email)
+        {
+            try
+            {
+                return dao.Exists(username, email);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+        }
+
+
         /*
             Helper
-         */ 
+         */
         private static Player? Convert(PlayerDTO dto)
         {
             return new Player() { Id = dto.Id, Username = dto.Username, Password = dto.Password, Email = dto.Email };

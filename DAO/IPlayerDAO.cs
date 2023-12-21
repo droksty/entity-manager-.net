@@ -11,5 +11,6 @@ namespace PlayerWebApp.DAO
         /*Player? GetByUsername(string username);
         Player? GetByEmail(string email);*/
         List<Player> GetAll();
+        bool Exists(string username, string email);
     }
 }

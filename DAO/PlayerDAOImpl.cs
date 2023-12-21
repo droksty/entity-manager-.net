@@ -130,5 +130,28 @@ namespace PlayerWebApp.DAO
             }
             return players;
         }
+
+
+        public bool Exists(string username, string email)
+        {
+            bool exists = false;
+            try
+            {
+                using SqlConnection? connection = DBLUtil.GetConnection();
+                connection?.Open();
+                string sql = "SELECT * FROM player WHERE username=@username OR email=@email";
+                using SqlCommand command = new(sql, connection);
+                command.Parameters.AddWithValue("@username", username);
+                command.Parameters.AddWithValue("@email", email);
+                using SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read()) exists = true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                throw;
+            }
+            return exists;
+        }
     }
 }

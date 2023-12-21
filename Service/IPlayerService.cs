@@ -12,5 +12,6 @@ namespace PlayerWebApp.Service
         /*Player? GetPlayerByUsername(string? username);
         Player? GetPlayerByEmail(string? email);*/
         List<Player> GetPlayerList();
+        bool PlayerExists(string username, string email);
     }
 }
