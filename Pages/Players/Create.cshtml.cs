@@ -22,7 +22,7 @@ namespace PlayerWebApp.Pages.Players
             PlayerDTO.Username = Request.Form["username"];
             PlayerDTO.Password = Request.Form["password"];
             PlayerDTO.Email = Request.Form["email"];
-            // Add validation layer & logic
+            // Add validation layer & logic => error = validate(dto) return if error != ""
 
             try
             {
