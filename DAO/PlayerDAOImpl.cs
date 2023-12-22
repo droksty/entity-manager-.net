@@ -77,7 +77,7 @@ namespace PlayerWebApp.DAO
             {
                 using SqlConnection? connection = DBLUtil.GetConnection();
                 connection?.Open();
-                string sql = "SELECT FROM player WHERE id=@id";
+                string sql = "SELECT * FROM player WHERE id=@id";
                 using SqlCommand command = new(sql, connection);
                 command.Parameters.AddWithValue("@id", id);
                 using SqlDataReader reader = command.ExecuteReader();
