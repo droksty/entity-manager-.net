@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using PlayerWebApp.DAO;
 using PlayerWebApp.Model;
 using PlayerWebApp.Service;
 
@@ -9,8 +7,8 @@ namespace PlayerWebApp.Pages.Players
     public class IndexModel : PageModel
     {
         private readonly IPlayerService service;
-        private string errorMessage = "";
-        internal List<Player> players = new();
+        public string? ErrorMessage { get; set; }
+        public List<Player> Players { get; set; } = new();
 
 
         public IndexModel(IPlayerService service) { this.service = service; }
@@ -18,15 +16,16 @@ namespace PlayerWebApp.Pages.Players
 
         public void OnGet()
         {
-            errorMessage = "";
+			ErrorMessage = "";
 
             try
             {
-                players = service.GetPlayerList();
+				Players = service.GetPlayerList();
             }
             catch (Exception e)
             {
-                errorMessage = e.Message;
+				ErrorMessage = e.Message;
+                //Response.Redirect("/Error");
             }
         }
     }

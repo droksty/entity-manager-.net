@@ -13,9 +13,9 @@
 		</tr>
 	</thead>
 	<tbody>
-		@if (Model.players is not null)
+		@if (Model.Players.Count != 0)
 		{
-			@foreach (var player in Model.players)
+			@foreach (var player in Model.Players)
 			{
 				<tr>
 					<td>@player.Id</td>
