@@ -108,10 +108,10 @@ namespace PlayerWebApp.DAO
             {
                 using SqlConnection? connection = DBLUtil.GetConnection();
                 connection?.Open();
-                string sql = "SELECT * player";
+                string sql = "SELECT * FROM player";
                 using SqlCommand command = new(sql, connection);
                 using SqlDataReader reader = command.ExecuteReader();
-                while (reader.Read())
+				while (reader.Read())
                 {
                     Player player = new()
                     {
