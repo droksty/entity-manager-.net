@@ -1,0 +1,13 @@
+﻿@page
+@model PlayerWebApp.Pages.Players.DeleteModel
+@{
+}
+
+@if (!Model.ErrorMessage.Equals(""))
+{
+	<h2><strong>@Model.ErrorMessage</strong></h2>
+}
+@if (!Model.SuccessMessage.Equals(""))
+{
+	<h2><strong>@Model.SuccessMessage</strong></h2>
+}
