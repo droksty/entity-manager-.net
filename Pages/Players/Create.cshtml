@@ -1,0 +1,40 @@
+﻿@page
+@model PlayerWebApp.Pages.Players.CreateModel
+@{
+}
+
+<h2>Insert new Player</h2>
+@if (!Model.ErrorMessage.Equals(""))
+{
+	<h2><strong>@Model.ErrorMessage</strong></h2>
+}
+@if (!Model.SuccessMessage.Equals(""))
+{
+	<h2><strong>@Model.SuccessMessage</strong></h2>
+}
+<form method="POST">
+	<div class="row mb-3">
+		<label for="username" class="col-md-1 col-form-label">Username</label>
+		<input type="text" class="form-control" name="username" id="username" 
+			placeholder="Enter username" value="@Model.PlayerDTO.Username" />
+	</div>
+	<div class="row mb-3">
+		<label for="password" class="col-md-1 col-form-label">Password</label>
+		<input type="text" class="form-control" name="password" id="password"
+			   placeholder="Enter password" value="@Model.PlayerDTO.Password" />
+	</div>
+	<div class="row mb-3">
+		<label for="email" class="col-md-1 col-form-label">e-mail</label>
+		<input type="text" class="form-control" name="email" id="email"
+			   placeholder="Enter e-mail" value="@Model.PlayerDTO.Email" />
+	</div>
+	<div class="row mb-3">
+		<div class="col-md-3 d-grid">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+		<div class="col-md-3 d-grid">
+			<a role="button" href="/" class="btn btn-outline-primary">Cancel</a>
+		</div>
+	</div>
+
+</form>
